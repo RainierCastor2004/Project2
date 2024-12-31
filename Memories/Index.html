@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey Together</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('path-to-your-romantic-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #ff5e78;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .tab-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .tabs {
+            display: flex;
+            gap: 15px;
+        }
+        .tabs button {
+            padding: 10px 20px;
+            background: #ffe6e9;
+            color: #ff5e78;
+            border: 2px solid #ff5e78;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: "Brush Script MT", cursive;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .tabs button:hover {
+            background: #ff5e78;
+            color: #fff;
+        }
+        .tabs button.active {
+            background: #ff5e78;
+            color: #fff;
+        }
+        .tab-content {
+            margin-top: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: #ff5e78;
+        }
+        .tab-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 94, 120, 0.8);
+            color: #fff;
+            font-size: 1rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+        footer p {
+            margin: 0;
+        }
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            z-index: -1;
+            top: 220px; /* Move the hearts lower */
+        }
+        .heart {
+            width: 30px;
+            height: 30px;
+            background: #ff5e78;    
+            position: absolute;
+            transform: rotate(-45deg);
+            animation: float 8s infinite ease-in;
+            opacity: 0.8;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: #ff5e78;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+        .heart::after {
+            left: 15px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-400px) rotate(-45deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-800px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tabs button');
+            tabs.forEach(tab => tab.style.display = 'none');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelector(`button[data-tab="${tabId}"]`).classList.add('active');
+        }
+
+        window.onload = () => {
+            showTab('tab1');
+            createHearts();
+        };
+
+        function createHearts() {
+            const heartsContainer = document.createElement('div');
+            heartsContainer.className = 'hearts';
+            document.body.appendChild(heartsContainer);
+
+            for (let i = 0; i < 150; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Happy New Year, My Love!</h1>
+        <p>Here’s to celebrating our special moments together with love and joy.</p>
+    </header>
+
+    <div class="container">
+        <div class="tab-section">
+            <div class="tabs">
+                <button data-tab="tab0" onclick="showTab('tab0')">Happy New Year, My Langga❤️</button>
+                <button data-tab="tab1" onclick="showTab('tab1')">This is our memories in 2024❤️</button>
+                <button data-tab="tab2" onclick="showTab('tab2')">My Warm Sweet Message❤️</button>
+                <button data-tab="tab3" onclick="showTab('tab3')">Looking Ahead❤️</button>
+            </div>
+        </div>
+
+        <div id="tab0" class="tab-content">
+            <h2>Happy New Year, My Langga❤️</h2>
+            <iframe src="D:\Downloads\Memories\471230515_9770772032936162_177581834220986818_n.mp4" width="280" height="200"> <allow="controls"> </allow></iframe>
+            <p>Hi Langga!! Happy New Year.. Sorry I don't have any to give this new year</p>
+            <p>But I promise nga mka bawi gd ko sa imo ahh.. And sorry kung permi tka gina away</p>
+            <p>ikw mn abi mun gina ubra mo gd ang mga hindi ko gusto kag kaisa ga pang garit garit ka mn HAHAHA</p>
+            <p>pero by the way gha!! This new year I hope that this new year is a wonderful occasion</p>
+        </div>
+
+
+        <div id="tab1" class="tab-content">
+            <h2>Our Beautiful Moments ❤️</h2>
+            <iframe src="D:\Downloads\Memories\audiobackground-music.mp3" width="280" height="200"> <allow="controls"> </allow></iframe>
+            <p>Click Play</p>
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+                td {
+                    padding: 10px;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+                img {
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                }
+                button {
+                    display: block;
+                    margin: 20px auto;
+                    padding: 10px 20px;
+                    background-color: #ff5e78;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                }
+                button:hover {
+                    background-color: #ff2e50;
+                }
+            </style>
+        </head>
+        <body>
+        <table>
+    <tbody>
+        <!-- Repeat the <tr> below to create rows with 5 images per row (total of 41 images) -->
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image1.jpg" alt="Image 1"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image2.jpg" alt="Image 2"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image3.jpg" alt="Image 3"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image4.jpg" alt="Image 4"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image5.jpg" alt="Image 5"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image6.jpg" alt="Image 6"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image7.jpg" alt="Image 7"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image8.jpg" alt="Image 8"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image9.jpg" alt="Image 9"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image10.jpg" alt="Image 10"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image11.jpg" alt="Image 11"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image12.jpg" alt="Image 12"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image13.jpg" alt="Image 13"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image14.jpg" alt="Image 14"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image15.jpg" alt="Image 15"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image16.jpg" alt="Image 16"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image17.jpg" alt="Image 17"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image18.jpg" alt="Image 18"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image19.jpg" alt="Image 19"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image20.jpg" alt="Image 20"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image21.jpg" alt="Image 21"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image22.jpg" alt="Image 22"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image23.jpg" alt="Image 23"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image24.jpg" alt="Image 24"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image25.jpg" alt="Image 25"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image26.jpg" alt="Image 26"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image27.jpg" alt="Image 27"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image28.jpg" alt="Image 28"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image29.jpg" alt="Image 29"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image30.jpg" alt="Image 30"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image31.jpg" alt="Image 31"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image32.jpg" alt="Image 32"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image33.jpg" alt="Image 33"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image34.jpg" alt="Image 34"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image35.jpg" alt="Image 35"></td>
+        </tr>
+        <tr>
+            <td><img src="D:\Downloads\Memories\path-to-image36.jpg" alt="Image 36"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image37.jpg" alt="Image 37"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image38.jpg" alt="Image 38"></td>
+            <td><img src="D:\Downloads\Memories\path-to-image39.jpg" alt="Image 39"></td>
+        </tr>
+    </tbody>
+</table>
+        </body>
+
+            <div class="fireworks">
+                <span>🎆</span>
+                <span>🎇</span>
+                <span>✨</span>
+            <p>Wishing us another year filled with love, happiness, and countless memories together. You make every moment special!</p>
+            <p>Without you I'm nothing you're so precious in me you're so much valuable to me and I can't afford to lose you becuase</p>
+            <p> you're everything I have</p>
+        </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <h2>My Warm Sweet Message❤️</h2>
+        <p>Hi langga ko❤️!!..You are the most amazing person I’ve ever met.Thank you for being my inspiration and my everything❤️.</p>
+        <p>Sa aton nga journey together gha sa kada adlaw nga gina kaya ko 
+            lampasan ang tanan nga ka kapoy bal an mo ikaw ang sulod sang 
+            isip ko para ma lampasan ang tanan gha. Di ko ma himo nga mag
+            untat sa kada adlaw kay bal an ko nka start na kita plan together
+            gha kung bali ikw ang ga butang color sa adlaw ko ahh AHAHAHAH.
+            Gha as I promise kaina sa tricycle as we pinky swear I don't know
+            kung naga tulo gd mn luha mo kay di abi kitaon basta ahh kay nag
+            pinky swear kita kaina gha gusto ko paninindugan tanan ko nga gin
+            mitlang kaina kag gha gusto tnan nga problema ma lampasan naton kay
+            ari lng ko di tka pag talikdan kung naga ka kinahanglan ka kay di mo 
+            lng ko basta nobyo kundi ara mn ko sa para sa mga problema mo so as I 
+            swear I will stay forever gha I promise. Iloveyou always my everything❤️
+        </p>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <h2>Our Future Together</h2>
+        <p>Here’s to many more years of love, laughter, and unforgettable moments. Let’s make this New Year even more special.
+            HAHAH gusto ko gha sa future naton first is mka tapos kita kag ma bakal or ma kuha naton tnan naton nga mga gusto
+            kag gusto ko gha ikw ang ma ka atubang ko sa atubang sang priest kag ma pa suksukan sang sing sing kag finally kasal na ta
+            basta dudamo gd ko plano sa future ta nga kaupod ka gha tuod na ya HAHAHAHAH.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Made with Love by Me for You</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
